@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petr Pekárek | Portfolio</title>
+    <style>
+        /*
+        Sleep deprivation is real - Me
+        I hope i get 1
+        */
+        :root {
+            --bg: #050505;
+            --text: #ffffff;
+            --muted: #444;
+            --border: #1a1a1a;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+        section.hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 { 
+            font-size: clamp(2.5rem, 9.5vw, 7rem); 
+            font-weight: 900; 
+            letter-spacing: -0.04em; 
+            line-height: 1.0;
+            text-transform: uppercase;
+        }
+
+        .wave { 
+            display: inline-block; 
+            transition: 0.3s; 
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .hero h1:hover .wave { animation: wave-animation 1.2s infinite; transform-origin: 70% 70%; }
+        /* I hate keyframes */
+        @keyframes wave-animation {
+            0%, 100% { transform: rotate(0deg) }
+            20% { transform: rotate(-10deg) }
+            40% { transform: rotate(15deg) }
+            60% { transform: rotate(-5deg) }
+            80% { transform: rotate(10deg) }
+        }
+
+        .hero-meta {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
+        }
+
+        .quote-box {
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.85rem;
+            border-left: 1px solid var(--muted);
+            padding-left: 1.5rem;
+            max-width: 450px;
+        }
+
+
+        section.content { padding: 140px 0; border-top: 1px solid var(--border); }
+        .label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; margin-bottom: 2.5rem; display: block; }
+
+        /* Under constr. */
+        .construction-zone {
+            width: 100%;
+            padding: 120px 20px;
+            border: 1px dashed var(--muted);
+            text-align: center;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.01) 10px, rgba(255,255,255,0.01) 20px);
+        }
+
+        .const-emoji { font-size: 1.5rem; margin-bottom: 1rem; opacity: 0.4; }
+        .const-text { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.4em; color: var(--text); }
+
+        /* STACK BOXES */
+        .stack-container { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1rem; }
+        .stack-item {
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--muted);
+            transition: 0.2s;
+        }
+        .stack-item:hover { border-color: var(--text); color: var(--text); }
+
+        /* FOOTER */
+        footer { 
+            padding: 80px 0; 
+            border-top: 1px solid var(--border);
+            display: flex; 
+            justify-content: space-between; 
+            font-family: var(--font-mono); 
+            font-size: 0.65rem; 
+            color: #222; 
+        }
+
+        .gh-link {
+            color: var(--text);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            transition: 0.2s;
+        }
+        .gh-link:hover { background: #fff; color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <section class="hero">
+            <span class="label">Dev Portfolio // 2026</span>
+            <h1>Petr<br>Pekárek<span class="wave">👋</span></h1>
+            
+            <div class="hero-meta">
+                <div class="quote-box">
+                    "Talk is cheap. Show me the code." <br>
+                    <span style="opacity: 0.5;">— Linus Torvalds</span>
+                </div>
+                <a href="https://github.com/PetruSS1" class="gh-link">GITHUB/PetruSS1 ↗</a>
+            </div>
+        </section>
+
+        <section class="content" id="projects">
+            <span class="label">01 // PROJECTS</span>
+            
+            <div class="construction-zone">
+                <div class="const-emoji">🚧 🏗️ 🛠️</div>
+                <div class="const-text">SYSTEM_BUILD_IN_PROGRESS</div>
+                <div style="font-size: 0.6rem; color: var(--muted); margin-top: 1.5rem; font-family: var(--font-mono); letter-spacing: 0.1em;">REFRESHING REPOSITORIES...</div>
+            </div>
+        </section>
+
+        <section class="content" id="stack">
+            <span class="label">02 // CORE STACK</span>
+            <div class="stack-container">
+                <div class="stack-item">C (Systems)</div>
+                <div class="stack-item">Python</div>
+                <div class="stack-item">Docker</div>
+                <div class="stack-item">Linux (Bash)</div>
+                <div class="stack-item">Git / GitHub</div>
+                <div class="stack-item">HTML / CSS / JS</div>
+            </div>
+        </section>
+
+        <section class="content">
+            <span class="label">03 // PHILOSOPHY</span>
+            <div class="quote-box" style="border: none; padding: 0; color: var(--text); font-size: 1.2rem; max-width: 650px; line-height: 1.4;">
+                "Unix is simple. It just takes a genius to understand its simplicity." <br>
+                <span style="color: var(--muted); font-size: 0.8rem; font-style: normal; display: block; margin-top: 10px;">— Dennis Ritchie</span>
+            </div>
+        </section>
+
+        <footer>
+            <div>ID: PETR_PEKAREK</div>
+            <div>LOC: CZ_PRG</div>
+            <div>STATUS: ACTIVE</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
