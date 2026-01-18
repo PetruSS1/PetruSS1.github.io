@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -6,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petr Pekárek | Portfolio</title>
     <style>
-        /*
-        Sleep deprivation is real - Me
-        I hope i get 1
-        */
         :root {
             --bg: #050505;
             --text: #ffffff;
-            --muted: #444;
-            --border: #1a1a1a;
+            --muted: #888888; 
+            --border: #333333; 
+            --footer-text: #555555; 
             --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
         }
 
@@ -28,8 +24,15 @@
             line-height: 1.5;
             overflow-x: hidden;
         }
+        /*
 
+        Sleep deprivation is real - Me
+
+        I hope i get 1
+
+        */
         .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
 
         section.hero {
             height: 100vh;
@@ -39,7 +42,7 @@
         }
 
         .hero h1 { 
-            font-size: clamp(2.5rem, 9.5vw, 7rem); 
+            font-size: clamp(2.5rem, 9.5vw, 7.5rem); 
             font-weight: 900; 
             letter-spacing: -0.04em; 
             line-height: 1.0;
@@ -54,6 +57,7 @@
         }
         
         .hero h1:hover .wave { animation: wave-animation 1.2s infinite; transform-origin: 70% 70%; }
+
         /* I hate keyframes */
         @keyframes wave-animation {
             0%, 100% { transform: rotate(0deg) }
@@ -74,27 +78,38 @@
         .quote-box {
             font-style: italic;
             color: var(--muted);
-            font-size: 0.85rem;
-            border-left: 1px solid var(--muted);
+            font-size: 0.9rem;
+            border-left: 2px solid var(--border);
             padding-left: 1.5rem;
             max-width: 450px;
         }
 
-
         section.content { padding: 140px 0; border-top: 1px solid var(--border); }
-        .label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; margin-bottom: 2.5rem; display: block; }
+        .label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); text-transform: uppercase; margin-bottom: 2.5rem; display: block; font-weight: 600; }
 
-        /* Under constr. */
-        .construction-zone {
-            width: 100%;
-            padding: 120px 20px;
-            border: 1px dashed var(--muted);
-            text-align: center;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.01) 10px, rgba(255,255,255,0.01) 20px);
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .const-emoji { font-size: 1.5rem; margin-bottom: 1rem; opacity: 0.4; }
-        .const-text { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.4em; color: var(--text); }
+        .construction-zone {
+            width: 100%;
+            padding: 60px 20px;
+            border: 1px dashed var(--muted);
+            text-align: center;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+            transition: all 0.3s ease;
+        }
+
+        .construction-zone:hover {
+            border-color: var(--text);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .const-emoji { font-size: 1.5rem; margin-bottom: 1rem; opacity: 0.8; }
+        .const-text { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: 0.2em; color: var(--text); font-weight: 700; }
+        .const-sub { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; margin-top: 0.6rem; line-height: 1.5; }
 
         /* STACK BOXES */
         .stack-container { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1rem; }
@@ -110,13 +125,13 @@
 
         /* FOOTER */
         footer { 
-            padding: 80px 0; 
+            padding: 60px 0; 
             border-top: 1px solid var(--border);
             display: flex; 
             justify-content: space-between; 
             font-family: var(--font-mono); 
-            font-size: 0.65rem; 
-            color: #222; 
+            font-size: 0.75rem; 
+            color: var(--footer-text); 
         }
 
         .gh-link {
@@ -125,11 +140,16 @@
             border: 1px solid var(--border);
             padding: 12px 20px;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             transition: 0.2s;
+            background: rgba(255,255,255,0.02);
         }
         .gh-link:hover { background: #fff; color: #000; }
 
+        @media (max-width: 600px) {
+            .hero-meta { flex-direction: column; align-items: flex-start; }
+            .gh-link { width: 100%; text-align: center; margin-top: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -137,13 +157,13 @@
     <div class="container">
         
         <section class="hero">
-            <span class="label">Dev Portfolio // 2026</span>
+            <span class="label">Portfolio // 2026</span>
             <h1>Petr<br>Pekárek<span class="wave">👋</span></h1>
             
             <div class="hero-meta">
                 <div class="quote-box">
                     "Talk is cheap. Show me the code." <br>
-                    <span style="opacity: 0.5;">— Linus Torvalds</span>
+                    <span style="color: var(--text); opacity: 0.7; font-weight: 600;">— Linus Torvalds</span>
                 </div>
                 <a href="https://github.com/PetruSS1" class="gh-link">GITHUB/PetruSS1 ↗</a>
             </div>
@@ -152,10 +172,30 @@
         <section class="content" id="projects">
             <span class="label">01 // PROJECTS</span>
             
-            <div class="construction-zone">
-                <div class="const-emoji">🚧 🏗️ 🛠️</div>
-                <div class="const-text">SYSTEM_BUILD_IN_PROGRESS</div>
-                <div style="font-size: 0.6rem; color: var(--muted); margin-top: 1.5rem; font-family: var(--font-mono); letter-spacing: 0.1em;">REFRESHING REPOSITORIES...</div>
+            <div class="project-grid">
+                <div class="construction-zone">
+                    <div class="const-emoji">🐍</div>
+                    <div class="const-text">PI-CONTROL</div>
+                    <div class="const-sub">
+                        Language: Python<br>
+                        Status: Under Maintenance
+                    </div>
+                </div>
+
+                <div class="construction-zone">
+                    <div class="const-emoji">🎯</div>
+                    <div class="const-text">SNIPPY</div>
+                    <div class="const-sub">
+                        Stack: TSX / React<br>
+                        Status: Under Development
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <div style="font-size: 0.65rem; color: var(--muted); font-family: var(--font-mono); letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600;">
+                    🚧 Initialize_Repository_Sync... 🚧
+                </div>
             </div>
         </section>
 
@@ -167,15 +207,16 @@
                 <div class="stack-item">Docker</div>
                 <div class="stack-item">Linux (Bash)</div>
                 <div class="stack-item">Git / GitHub</div>
-                <div class="stack-item">HTML / CSS / JS</div>
+                <div class="stack-item">TSX / React</div>
+                <div class="stack-item">Vanilla JS / CSS Grid</div>
             </div>
         </section>
 
         <section class="content">
             <span class="label">03 // PHILOSOPHY</span>
-            <div class="quote-box" style="border: none; padding: 0; color: var(--text); font-size: 1.2rem; max-width: 650px; line-height: 1.4;">
+            <div class="quote-box" style="border: none; padding: 0; color: var(--text); font-size: 1.3rem; max-width: 650px; line-height: 1.4;">
                 "Unix is simple. It just takes a genius to understand its simplicity." <br>
-                <span style="color: var(--muted); font-size: 0.8rem; font-style: normal; display: block; margin-top: 10px;">— Dennis Ritchie</span>
+                <span style="color: var(--muted); font-size: 0.9rem; font-style: normal; display: block; margin-top: 12px; font-weight: 600;">— Dennis Ritchie</span>
             </div>
         </section>
 
